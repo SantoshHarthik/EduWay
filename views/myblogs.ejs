@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>upload</title>
+<%- include('partials/links.ejs')  %> 
+ 
+</head>
+<%- include('partials/adminnavbar.ejs')  %> 
+
+<body>
+
+<div class="container">
+
+  <h1 class="div">My Blogs</h1><br><br>
+  <% if (blogs.length<1) { %>
+    <p> You do not have any blogs.. <big><a href="/upload">Click Here</a></big> to add one <i class="fa-solid fa-pen-nib"></i> </p>
+    <%} else { %>
+      <% for(var i=0;i<blogs.length;i++) { %>
+        <div class="card my-4" style="width: 90%; margin-left:3% ; background-color:rgb(255, 255, 255) ;">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= blogs[i].name %>
+            </h5>
+            <h6 class="text-muted mt-4" style="font-weight: bold;">
+              <%= blogs[i].descriptioninshort%>
+            </h6>
+            <h6 class="text-muted mt-4" style="font-weight: bold;">Category :
+              <%= blogs[i].category%>
+            </h6>
+          </div>
+           <button class="bn15"><a href="/delete/<%=blogs[i]._id%>/<%= admin.id %>" >Delete Blog</a></button> 
+
+        </div>
+    <%};%>
+<%};%>
+</div>
+<body>
+</body>
+</html>

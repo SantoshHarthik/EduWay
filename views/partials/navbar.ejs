@@ -1,0 +1,55 @@
+
+<div class="div my-5" style="width: 100%;">
+  <nav class="navbar fixed-top navbar-expand-lg bg-dark navbar-dark">
+      <div class="container-fluid">
+          <a class="navbar-brand mx-3 ms-5" style="cursor:default;">Eduway</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-3">
+                  <li class="nav-item mx-3">
+                      <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Subject
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                      <li><a class="dropdown-item" href="/category/maths">maths</a></li>
+                      <li><a class="dropdown-item" href="/category/physics">physics</a></li>
+                      <li><a class="dropdown-item" href="/category/chemistry">chemistry</a></li>
+                      <li><a class="dropdown-item" href="/category/botany">botany</a></li>
+                      <li><a class="dropdown-item" href="/category/zoology">zoology</a></li>
+                    </ul>
+                  </li>
+                  &nbsp;
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/?sort=views">Popular Blogs</a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              </ul>
+                  <ul class="nav-item d-flex">
+                      <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle text-light" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i>
+                        <% var name=user.email.slice(0,user.email.length-10); %>
+                        <%- name %> 
+                    </a>
+                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" href="#" >
+                
+                              <li><a class="dropdown-item" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                  Log Out </a></li>
+                          </ul>
+                      </li>
+                  </li>
+                  </ul>
+
+              </div>
+      </div> 
+  </nav>
+</div>
+
+

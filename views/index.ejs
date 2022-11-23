@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | Eduway</title>
+    <%- include('partials/links')-%>
+<link rel="stylesheet" href="/style.css">
+
+</head>
+<%- include('partials/navbar.ejs') %>
+    <br><br><br>
+    <div class="div text-center">
+        <h1>ALL Blogs</h1>
+    </div>
+    <div class="div text-end" style="margin: 0% 3% 3% 60%">
+        <div class="form-group mb-3">
+            <div>
+                <label for="category" class="form-label"></label>
+                <select name="category" class="form-label" id="category">
+                    <option disabled selected value><b>Sort-By</b></option>
+                    <option href="/?sort=views">Views</option>
+                    <option href="/?sort=count">Count</option>
+                    <option href="/">Custom</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <% for(var i=0;i<blogs.length;i++) { %>
+        <div class="card mb-4"
+            style="width: 90%; margin-left:3% ;cursor: pointer ; background-color:rgb(255, 255, 255);"
+            onclick="location.href=`/read/<%=blogs[i].id%>/<%=user.id%>`;">
+            <div class="row g-0" style="height: 160px; box-shadow: 5px 5px 10px 0px #bbe9ed;">
+                <div class="col-md-4">
+                    <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title mb-0" style="text-transform:uppercase;">
+                            <%= blogs[i].name%>
+                        </h5>
+                        <br>
+                        <p class="card-text"><small class="text-muted">
+                                <%= blogs[i].subject %>
+                            </small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <%};%>
+    </div>
+</body>
+
+</html>

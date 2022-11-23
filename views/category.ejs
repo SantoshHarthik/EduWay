@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/aaheader')-%>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Home | Eduway</title>
+    <link rel="stylesheet" href="/style.css">
+        <%- include('partials/links')-%>
+    </head>
+
+    <%- include('partials/navbar') %>
+        <br><br><br>
+        <div class="main text-center fs-2 m-0">
+            <%-title%>
+        </div>
+
+        <br>
+        <div class="container">
+            <% if (blogs.length<1) { %>
+                <div class="div mx-5">
+                    <p> No blogs available in <%=title %>
+                    </p>
+                </div>
+                <%} else { %>
+                    <% for(var i=0;i<blogs.length;i++) { %>
+                        <div class="card mb-3"
+                            style="width: 90%; margin-left:3% ; background-color:rgb(255, 255, 255) ; cursor: pointer;"
+                            onclick="location.href=`/read/<%=blogs[i].id%>/<%=user.id%>`;">
+
+                            <div class="row g-0" style="height: 160px;">
+                                <div class="col-md-4">
+                                    <img src="..." class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="text-transform:uppercase;">
+                                            <%= blogs[i].name%>
+                                        </h5>
+                                        <p class="card-text">
+                                            <%= blogs[i].description %>
+                                        </p>
+                                        <p class="card-text"><small class="text-muted">
+                                                <%= blogs[i].subject %>
+
+                                            </small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%}};%>
+        </div>
+        </body>
+
+</html>

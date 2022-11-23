@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Read Blog | Eduway</title>
+    <%- include('partials/links')-%>
+</head>
+<%- include('partials/navbar.ejs') %> <br>
+
+    <body>
+        <br>
+        <h3 class="div text-center" style="text-transform:uppercase;">
+            <%= blogs.name%>
+        </h3>
+        <div class="container">
+            <br><br>
+            <form class="mx-0">
+                <div class="form-group">
+                    <label for="name" class="form-label" style="font-size:170%;">Name :</label>
+                    <textarea disabled required name="name" id="name " class="form-control" style="overflow:auto; resize: none; width: 90%;
+                        outline: none; padding:0.9% 0% 0% 0.5%;
+                          font-size: medium; border-radius: 10px; line-height: 20px;"><%= blogs.name %></textarea>
+                </div>
+                <div class="form-group ">
+                    <label for="description" class="form-label" style="font-size:170%;">Description :</label>
+                    <textarea disabled required name="description" id="description " class="form-label"
+                        style="overflow:auto; resize: none; width: 90%;
+                        outline: none; padding:0.9% 0% 0% 0.5%;
+                          font-size: medium; border-radius: 10px; line-height: 20px;"><%= blogs.description %></textarea>
+                </div>
+
+
+                <div class="form-group ">
+                    <label for="difficulty" class="form-label" style="font-size:170%;">Difficulty :</label>
+
+                    <textarea disabled required name="difficulty" id="difficulty" class="form-label"
+                        style="overflow:auto; resize: none; width: 90%; padding:0.9% 0% 0% 0.5%;
+                        outline: none;
+                          font-size: medium; border-radius: 10px; line-height: 20px;"><%= blogs.difficulty %></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject" class="form-label" style="font-size:170%;">Subject :</label>
+
+                    <textarea disabled required name="subject" id="subject" class="form-label" style="overflow:auto; resize: none; width: 90%;
+                        outline: none; padding:0.9% 0% 0% 0.5%;
+                          font-size: medium; border-radius: 10px; line-height: 20px;"><%= blogs.subject %>
+                </textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="materiallist" class="form-label" style="font-size:170%;">Material List :</label>
+
+                    <table class="table" style="width:20%;">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Material</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i=0;i<blogs.materiallist.length;i++){ %>
+                                <tr>
+                                    <th>
+                                        <%= blogs.materiallist[i].quantity %>
+                                    </th>
+                                    <td>
+                                        <%= blogs.materiallist[i].name %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <label for="precautions" class="form-label" style="font-size:170%;">Precautions :</label>
+
+                    <% for(var i=0;i<blogs.precautions.length;i++){ %>
+                        <br><br>
+                        <span class="ms-3">
+                            <%=i+1%>.)
+                        </span>
+                        <span>
+                            <%= blogs.precautions[i] %>
+                        </span>
+                        <% } %>
+                </div>
+                <br><br>
+
+                <div class="form-group">
+                    <label for="instructions" class="form-label" style="font-size:170%;">Instructions :</label>
+                    <% for(var i=0;i<blogs.instructions.length;i++){ %>
+                        <br><br>
+                        <span class="ms-3">
+                            <%= i+1 %>.)
+                        </span>
+                        <span>
+                            <%= blogs.instructions[i].name %>
+                        </span>
+                        <span>
+                            <%= blogs.instructions[i].email %>
+                        </span>
+                        <% } %>
+                </div><br><br>
+
+
+                <a href="/<%= blogs.id%>/<%= user.id  %>/like"><i class="fa fa-light fa-thumbs-up">
+                        <%= blogs.likes.length%>
+                    </i></a>&nbsp;&nbsp;
+                <i class="fa fa-light fa-eye">
+                    <%= blogs.views.length%>
+                </i>
+        </div>
+        </form>
+        <br><br>
+        </div>
+    </body>
+
+</html>
